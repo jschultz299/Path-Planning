@@ -31,18 +31,18 @@ The first step is to recreate the nodes and associated costs in a matrix. Becaus
 Here's what the cost matrix looks like for this example:
 
 ```
-cost = [ 0  0 18 12 30  0;
-         0  0 27  0  0 10;
-        18 27  0  0  0 15;
-        12  0  0  0  8 20;
-        30  0  0  8  0 10;
-         0 10 15 20 10  0];
+cost = [ 0  0 18 12 30  0 ;
+         0  0 27  0  0 10 ;
+        18 27  0  0  0 15 ;
+        12  0  0  0  8 20 ;
+        30  0  0  8  0 10 ;
+         0 10 15 20 10  0 ];
 ```
 Next, we initialize 4 vectors to keep track of while we go:
-1. Past Cost: 
-2. Optimistic Cost to Go:
-3. Estimated Total Cost:
-4. Parent Node"
+1. Past Cost - cost of previous best path through node(i)
+2. Optimistic Cost to Go - lower bound on the actual cost to go from a node to a goal node
+3. Estimated Total Cost - sum of Past Cost and Optimistic Cost to Go
+4. Parent Node - previous node on best known path for node(i)
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
