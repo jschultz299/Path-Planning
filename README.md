@@ -44,9 +44,19 @@ Next, we initialize 4 ```1xn``` vectors, where the ```nth``` column corresponds 
 3. Estimated Total Cost - sum of Past Cost and Optimistic Cost to Go
 4. Parent Node - previous node on best known path for each node
 
-For the ```past_cost```, the cost to travel from node #1 to itself is ```0```, whereas we initialize the rest to be ```inf```. For the ```optimist_ctg```, we want to choose values that are close to the actual cost to go, but serve as a lower bound. In this case, we will estimate the straight line distance from each node to the goal node. In a real problem, this may be measured. For this reason, we will estimate the ```optimist_ctg``` for node #1 to be ```20```, ```10``` for nodes #2-5, and ```0``` for node #6, because it is the goal node.
+For the ```past_cost```, the cost to travel from node #1 to itself is ```0```, whereas we initialize the rest to be ```inf```. 
 
+For the ```optimist_ctg```, we want to choose values that are close to the actual cost to go, but serve as a lower bound. In this case, we will estimate the straight line distance from each node to the goal node. In a real problem, this may be measured. For this reason, we will estimate the ```optimist_ctg``` for node #1 to be ```20```, ```10``` for nodes #2-5, and ```0``` for node #6, because it is the goal node.
 
+For the ```est_tot_cost```, we simply sum the ```past_cost``` and the ```optimist_ctg```.
+
+Finally, for the ```parent_node```, we initialize all the nodes to 0.
+
+Here is a summary table of our intial lists:
+
+INSERT IMAGE HERE.
+
+We also need an ```OPEN``` list and a ```CLOSED``` list. These will tell the A* algorithm which node to search next, and when we can be finished searching a particular node.
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
