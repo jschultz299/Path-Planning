@@ -39,8 +39,6 @@ cost = [ 0  0 18 12 30  0;
          0 10 15 20 10  0];
          
 past_cost = zeros(1, num_nodes);
-% optimist_ctg = zeros(1, num_nodes);
-% est_tot_cost = zeros(1, num_nodes);
 parent_node = zeros(1, num_nodes); 
 
 % Initialize A* table
@@ -50,8 +48,8 @@ for i = 1:1:num_nodes
     end
 end
 
-% Start with fake optimistic cost to go.
-% Should have a function that evaluates this
+% Start with an estimate of the optimistic cost to go.
+% Should have a function that evaluates this in a real problem.
 optimist_ctg = [20, 10, 10, 10, 10, 0];
 
 est_tot_cost = past_cost + optimist_ctg;
