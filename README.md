@@ -16,7 +16,7 @@ In this code, I have implemented the A* algorithm on the example Kevin Lynch pre
 
 Below you can see the example graph, along with it's optimal path, shown in green.
 
-<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/graph.png" width=27%> <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/graph.png" width=26%> <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
 
 The graph consists of 6 nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
 
