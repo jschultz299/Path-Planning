@@ -38,7 +38,11 @@ cost = [ 0  0 18 12 30  0;
         30  0  0  8  0 10;
          0 10 15 20 10  0];
 ```
-
+Next, we initialize 4 vectors to keep track of while we go:
+1. Past Cost: 
+2. Optimistic Cost to Go:
+3. Estimated Total Cost:
+4. Parent Node"
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
