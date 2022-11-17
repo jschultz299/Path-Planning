@@ -62,7 +62,7 @@ To iteratively step through the A* search algorithm for this example, feel free 
 
 Here is the section of the code that runs the actual A* algorithm:
 
-```bash
+```matlab
 % Start A* Graph Search
 while isempty(open_node) == false
     search_node = open_node(1);
