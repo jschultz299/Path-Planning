@@ -39,12 +39,12 @@ cost = [ 0  0 18 12 30  0 ;
          0 10 15 20 10  0 ];
 ```
 Next, we initialize 4 ```1xn``` vectors, where the ```nth``` column corresponds to the node:
-1. Past Cost - cost of previous best known path through node(i)
+1. Past Cost - cost of previous best known path through each node
 2. Optimistic Cost to Go - lower bound on the actual cost to go from a node to a goal node
 3. Estimated Total Cost - sum of Past Cost and Optimistic Cost to Go
-4. Parent Node - previous node on best known path for node(i)
+4. Parent Node - previous node on best known path for each node
 
-For each vector, the column corresponds to the node. For the ```past_cost```, the cost to travel from node #1 to itself is ```0```, whereas we initialize the rest to be ```inf```.
+For the ```past_cost```, the cost to travel from node #1 to itself is ```0```, whereas we initialize the rest to be ```inf```. For the ```optimist_ctg```, we want to choose values that are close to the actual cost to go, but serve as a lower bound. In this case, we will estimate the straight line distance from each node to the goal node. In a real problem, this may be measured. For this reason, we will estimate the ```optimist_ctg``` for node #1 to be ```20```, ```10``` for nodes #2-5, and ```0``` for node #6, because it is the goal node.
 
 
 
