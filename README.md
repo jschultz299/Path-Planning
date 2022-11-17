@@ -18,13 +18,15 @@ Below you can see the example graph, along with it's optimal path, shown in gree
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/graph.png" width=26%> <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
 
-The graph consists of 6 nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
+This is a weighted, undirectional graph. The graph consists of 6 nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
 
 Each edge also contains an associated cost. This can be thought of as the effort required to take that path, or perhaps the distance between nodes, though then this graph is not shown to scale.
 
 Here we can see that the optimal path is to start at node #1, travel to node #4, then through node #5, and finally to the goal node, nod #6. If we sum up the cost associated with each path, we get a ```cost = 30```. Therefore, the optimal path is ```1-4-5-6```.
 
 But how to we find this optimal path? That's where the A* algorithm comes in handy. I've implemented the solution in the matlab script [Astar.m](https://github.com/jschultz299/Path-Planning/blob/main/A-Star/aStar.m).
+
+The first step is to recreate the nodes and associated costs in a matrix. Because there are 6 total nodes, or matrix will be a ```6x6```, where each element in the matrix is the cost associated with travelling along the path between the nodes ```i``` and ```j```. In an undirectional graph, it does not matter which direction you travel between nodes, so there will be duplicate costs in our matrix. This is okay, the A* search algorithm can handle this.
 
 
 ## Acknowledgments
