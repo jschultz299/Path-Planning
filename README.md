@@ -8,9 +8,13 @@ In this repository, we explore two common path planning algorithms:
 1. A* search algorithm
 2. Rapidly Exploring Random Trees
 
-There are 4 main projects within this folder, all of which leverage OpenAi [Gym](https://gym.openai.com) Environments.
+## 1) A* Search Algorithm
 
-## 1) Pendulum
+A* is one of the most common and efficient graph search algorithms. It finds the optimal path from a start node to a goal node, connecting intermediate nodes via edges.
+
+In this code, I have implemented the A* algorithm on the example Kevin Lynch presents in his video on Path Planning [here](https://youtu.be/ZI800-2jv38).
+
+
 
 This project uses the [CartPole](https://www.gymlibrary.dev/environments/classic_control/cart_pole/) environment. The goal of the project is the train the agent to learn how to balance the pendulum upright for an extended period of time. The agent is rewarded if the pendulum remains upright within a certain range of joint angles.
 
