@@ -50,7 +50,7 @@ For the ```optimist_ctg```, we want to choose values that are close to the actua
 
 For the ```est_tot_cost```, we simply sum the ```past_cost``` and the ```optimist_ctg```.
 
-Finally, for the ```parent_node```, we initialize all the nodes to 0.
+Finally, for the ```parent_node```, we initialize all the nodes to ```0```.
 
 Here is a summary table of our intial lists:
 
