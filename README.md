@@ -129,11 +129,11 @@ disp(optimal_cost)
 ```
 This should be the output if you've implemented the code correctly:
 
-<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=30%>
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=35%>
 
 If we compare this to what we computed previously, this is the optimal solution.
 
-<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=30%>
 ```Optimal Path```: ```1-4-5-6```
 ```Optimal Cost```: ```30```
 
