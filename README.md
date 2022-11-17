@@ -131,6 +131,6 @@ INSERT IMAGE HERE...
 COMING SOON...
 
 ## Acknowledgments
-I want to thank Nicholas Renotte for his [Reinforcement Learning in 3 Hours](https://www.youtube.com/watch?v=Mut_u40Sqz4) course on YouTube. You can check out his code for these projects as well [here](https://github.com/nicknochnack/ReinforcementLearningCourse).
+I want to thank Kevin Lynch for his book, [Modern Robotics: Mechanics, Planning, and Control]([https://www.youtube.com/watch?v=Mut_u40Sqz4](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf)) as well as his corresponding video series [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
 
 
