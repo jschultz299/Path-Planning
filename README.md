@@ -24,7 +24,7 @@ Each edge also contains an associated cost. This can be thought of as the effort
 
 Here we can see that the optimal path is to start at node #1, travel to node #4, then through node #5, and finally to the goal node, nod #6. If we sum up the cost associated with each path, we get a ```cost = 30```. Therefore, the optimal path is ```1-4-5-6```.
 
-
+But how to we find this optimal path? That's where the A* algorithm comes in handy. I've implemented the solution in a matlab code [Astar.m]().
 
 
 This project uses the [CartPole](https://www.gymlibrary.dev/environments/classic_control/cart_pole/) environment. The goal of the project is the train the agent to learn how to balance the pendulum upright for an extended period of time. The agent is rewarded if the pendulum remains upright within a certain range of joint angles.
