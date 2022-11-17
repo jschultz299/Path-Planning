@@ -129,7 +129,7 @@ disp(optimal_cost)
 ```
 This should be the output if you've implemented the code correctly:
 
-<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=50%>
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=30%>
 
 If we compare this to what we computed previously, this is the optimal solution.
 
