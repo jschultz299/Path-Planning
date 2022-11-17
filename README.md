@@ -28,6 +28,18 @@ But how to we find this optimal path? That's where the A* algorithm comes in han
 
 The first step is to recreate the nodes and associated costs in a matrix. Because there are 6 total nodes, or matrix will be a ```6x6``` matrix, where each element in the matrix is the cost associated with travelling along the path between the nodes ```i``` and ```j```. In an undirectional graph, it does not matter which direction you travel between nodes, so there will be duplicate costs in our matrix. This is okay, the A* search algorithm can handle this.
 
+Here's what the cost matrix looks like for this example:
+
+```
+bash
+cost = [ 0  0 18 12 30  0;
+         0  0 27  0  0 10;
+        18 27  0  0  0 15;
+        12  0  0  0  8 20;
+        30  0  0  8  0 10;
+         0 10 15 20 10  0];
+```
+
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
