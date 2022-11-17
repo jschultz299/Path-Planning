@@ -30,7 +30,7 @@ The first step is to recreate the nodes and associated costs in a matrix. Becaus
 
 Here's what the cost matrix looks like for this example:
 
-```
+```matlab
 cost = [ 0  0 18 12 30  0 ;
          0  0 27  0  0 10 ;
         18 27  0  0  0 15 ;
