@@ -1,4 +1,4 @@
-## 1) A* Search Algorithm
+# A* Search Algorithm
 
 A* is one of the most common and efficient graph search algorithms. It finds the optimal path from a start node to a goal node, connecting intermediate nodes via edges.
 
