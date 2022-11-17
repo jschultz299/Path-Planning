@@ -99,7 +99,39 @@ while isempty(open_node) == false
     open_cost(idx) = [];
 end
 ```
-While the ```OPEN``` list contains nodes, we loop through our cost matrix, comparing the costs between nodes to previously computed costs. If ```current_cost < past_cost```, then we update our information and continue the search. The algorithm terminates if we search all possible paths, the first node in the ```OPEN``` list is the goal node, or the ```OPEN``` list is empty.
+While the ```OPEN``` list contains nodes, we loop through our cost matrix, comparing the costs between nodes to previously computed costs. If ```current_cost < past_cost```, then we update our information and continue the search, otherwise, it is not an optimal path and we skip it. The algorithm terminates if we search all possible paths, the first node in the ```OPEN``` list is the goal node, or the ```OPEN``` list is empty.
+
+Once the A* algorithm finds an optimal path, we can reconstruct this path by stepping back through the ```parent_node``` list. We can also sum the costs as we go to compute the ```Optimal Cost```. Here is the final section of the code that achieves this:
+
+```matlab
+% After search is finished, reconstruct the optimal path
+optimal_path = zeros(1,num_nodes);
+optimal_path(1,end) = goal_node;
+optimal_cost = 0;
+tic
+for i = num_nodes-1:-1:1
+    optimal_path(1,i) = parent_node(optimal_path(1,i+1));
+    optimal_cost = optimal_cost + cost(optimal_path(1,i), optimal_path(1,i+1));
+    if optimal_path(1,i) == 1
+        disp('Path Found!')
+        optimal_path(optimal_path==0) = [];
+        break
+    end
+end
+```
+Finally, let's display the ```Optimal Path``` and the ```Optimal Cost```.
+
+```matlab
+disp('Optimal Path: ')
+disp(optimal_path)
+disp('Optimal Cost: ')
+disp(optimal_cost)
+```
+This should be the output if you've implemented the code correctly:
+
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=50%>
+
+So congratulations! Our A* search algorithm found the optimal solution in less than ```0.01``` seconds! 
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
