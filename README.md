@@ -18,7 +18,7 @@ Below you can see the example graph, along with it's optimal path, shown in gree
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/graph.png" width=26%> <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
 
-This is a weighted, undirectional graph. The graph consists of 6 nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
+This is a weighted, undirectional graph. The graph consists of ```n = 6``` nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
 
 Each edge also contains an associated cost. This can be thought of as the effort required to take that path, or perhaps the distance between nodes, though then this graph is not shown to scale.
 
@@ -38,11 +38,15 @@ cost = [ 0  0 18 12 30  0 ;
         30  0  0  8  0 10 ;
          0 10 15 20 10  0 ];
 ```
-Next, we initialize 4 vectors to keep track of while we go:
-1. Past Cost - cost of previous best path through node(i)
+Next, we initialize 4 ```1xn``` vectors, where the ```nth``` column corresponds to the node:
+1. Past Cost - cost of previous best known path through node(i)
 2. Optimistic Cost to Go - lower bound on the actual cost to go from a node to a goal node
 3. Estimated Total Cost - sum of Past Cost and Optimistic Cost to Go
 4. Parent Node - previous node on best known path for node(i)
+
+For each vector, the column corresponds to the node. For the ```past_cost```, the cost to travel from node #1 to itself is ```0```, whereas we initialize the rest to be ```inf```.
+
+
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
