@@ -14,7 +14,15 @@ A* is one of the most common and efficient graph search algorithms. It finds the
 
 In this code, I have implemented the A* algorithm on the example Kevin Lynch presents in his video on Path Planning [here](https://youtu.be/ZI800-2jv38).
 
+Below you can see the example graph, along with it's optimal path, shown in green.
 
+INSERT IMAGES HERE.
+
+The graph consists of 6 nodes. The start node is node #1 while the goal node is node #6. Some of the nodes are connected via edges such that there are multiple paths you can take to reach the goal node from the start node.
+
+Each edge also contains an associated cost. This can be thought of as the effort required to take that path, or perhaps the distance between nodes, though then this graph is not shown to scale.
+
+Here we can see that the optimal path is to start at node #1, travel to node #4, then through node #5, and finally to the goal node, nod #6. If we sum up the cost associated with each path, we get a ```bashcost=30```.
 
 This project uses the [CartPole](https://www.gymlibrary.dev/environments/classic_control/cart_pole/) environment. The goal of the project is the train the agent to learn how to balance the pendulum upright for an extended period of time. The agent is rewarded if the pendulum remains upright within a certain range of joint angles.
 
