@@ -2,21 +2,23 @@
 % presented in Kevin Lynch's Modern Robotics video series
 % Video - Chapter 10.2.4: Graph Search
 
+% Author: Jack Schultz
+
 % Goal: find a path between start and end nodes which minimizes the cost
 
-% Graph is weighted, undirected graph
+% Graph is a weighted, undirected graph
 % Correct solution:
 %   - Optimal Path: 1-4-5-6
 %   - Optimal Cost: 30
 
 % Terms:
-%   Past Cost (past_cost): 
+%   Past Cost (past_cost): Cost of previous best path through node(i)
 %   Optimistic Cost to Go (optimist_ctg)
 %       - lower bound on actual cost to go from a node to a goal node
 %       - optimistic if actual cost to go can never be lower
 %       - needs to be fast to evaluate and reasonably close to actual
 %       - good function computes straight line distance from start to goal
-%   Estimated Total Cost (est_tot_cost):
+%   Estimated Total Cost (est_tot_cost): sum of Past Cost and Optimistic Cost to Go
 %   Parent Node (parent_node): previous node on best known path for node(i)
 
 clear
