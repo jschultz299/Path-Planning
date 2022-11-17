@@ -54,7 +54,7 @@ Finally, for the ```parent_node```, we initialize all the nodes to 0.
 
 Here is a summary table of our intial lists:
 
-<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/initial_lists.png" width=26%>
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/initial_lists.png" width=50%>
 
 We also need an ```OPEN``` list and a ```CLOSED``` list. These will tell the A* algorithm which node to search next, and when we can be finished searching a particular node.
 
