@@ -131,7 +131,13 @@ This should be the output if you've implemented the code correctly:
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/output.png" width=50%>
 
-So congratulations! Our A* search algorithm found the optimal solution in less than ```0.01``` seconds! 
+If we compare this to what we computed previously, this is the optimal solution.
+
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/solution.png" width=25%>
+```Optimal Path```: ```1-4-5-6```
+```Optimal Cost```: ```30```
+
+So congratulations! Our A* search algorithm found the optimal path in less than ```0.01``` seconds!
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
