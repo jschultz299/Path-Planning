@@ -58,6 +58,48 @@ Here is a summary table of our intial lists:
 
 We also need an ```OPEN``` list and a ```CLOSED``` list. These will tell the A* algorithm which node to search next, and when we can be finished searching a particular node.
 
+To iteratively step through the A* search algorithm for this example, feel free to follow along with Kevin's video [here](https://youtu.be/ZI800-2jv38), or set breakpoints in the [Astar.m](https://github.com/jschultz299/Path-Planning/blob/main/A-Star/aStar.m) script.
+
+Here is the section of the code that runs the actual A* algorithm:
+
+```bash
+% Start A* Graph Search
+while isempty(open_node) == false
+    search_node = open_node(1);
+    if search_node == goal_node
+        disp('Search Done!')
+        break
+    end
+    for i = 1:num_nodes
+        if cost(search_node,i) ~= 0
+            current_node = i;
+            current_cost = cost(search_node,i) + past_cost(1,search_node);
+            if current_cost < past_cost(1, current_node)
+                parent_node(1,i) = search_node;
+                past_cost(1,i) = cost(parent_node(1,i),i) + past_cost(1,parent_node(1,i));
+                est_tot_cost = past_cost + optimist_ctg;
+                % If search node is already in open_node list, replace it
+                if ismember(current_node, open_node) == true
+                    idx = find(open_node==current_node);
+                    open_node(idx) = [];
+                    open_cost(idx) = [];
+                end
+                open_node = [open_node, current_node];
+                open_cost = [open_cost, est_tot_cost(1,current_node)];
+                % Sort open list by ascending cost
+                [open_cost, I] = sort(open_cost);
+                open_node = open_node(I);
+            end
+        end
+    end
+    % Find and move search node from open to closed list
+    idx = find(open_node==search_node);
+    closed_node = [closed_node, open_node(idx)];
+    open_node(idx) = [];
+    open_cost(idx) = [];
+end
+```
+
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
 
