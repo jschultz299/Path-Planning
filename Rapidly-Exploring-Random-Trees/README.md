@@ -46,7 +46,7 @@ In general, the RRT algorithm has two goals:
 1. Find a path from the ```START``` node to the ```END``` node
 2. Explore the space
 
-Unlike the A* algorithm, the RRT does not guarantee the optimal path will be found. Instead, this is a sampling algorithm that will explore until a node is found within some radius ```E > 0.2```of the goal node, or until a specified number of nodes have been searched.
+Unlike the A* algorithm, the RRT does not guarantee the optimal path will be found. Instead, this is a sampling algorithm that will explore until a node is found within some radius ```E > 0.2``` of the goal node, or until a specified number of nodes have been searched.
 
 
 
