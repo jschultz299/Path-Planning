@@ -170,6 +170,8 @@ Because of their relative simplicity and explorative nature, RRTs are a popular 
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-star.png" width=75%>
 
+Maybe in a future project I will modify my RRT implementation to include the RRT* algorithm so stay tuned for that.
+
 If you missed my previous project implementing the A* Graph Search Algorithm, check it out [here](https://github.com/jschultz299/Path-Planning/tree/main/A-Star)!
 
 ## Acknowledgments
