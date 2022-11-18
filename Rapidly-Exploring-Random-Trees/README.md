@@ -84,38 +84,62 @@ We then check the current tree and find the node that is the closest to the new 
 
 ```matlab
 % Find nearest parent node to new node
-    shortest_d = inf;
-    for ii = 1:1:size(data.node,1)
-        d = sqrt((data.node(ii,1)-data.node(i,1))^2 + (data.node(ii,2)-data.node(i,2))^2);
-        if d ~= 0 && d < shortest_d
-            shortest_d = d;
-            index_d = ii;
-        end
+shortest_d = inf;
+for ii = 1:1:size(data.node,1)
+    d = sqrt((data.node(ii,1)-data.node(i,1))^2 + (data.node(ii,2)-data.node(i,2))^2);
+    if d ~= 0 && d < shortest_d
+        shortest_d = d;
+        index_d = ii;
     end
+end
 ```
 
 We then need to make sure that no collisions are detected between the nearest parent node and the new sampled node.
 
 ```matlab
 % Collision Detection
-    v = [linspace(data.node(data.parent(i),1), data.node(i,1), 50)', linspace(data.node(data.parent(i),2), data.node(i,2), 50)'];
-    for r = 1:1:length(v)
-        [in, on] = inpolygon(v(r,1), v(r,2), obstacle(:,1),obstacle(:,2));
-        [in2, on2] = inpolygon(v(r,1), v(r,2), obstacle2(:,1),obstacle2(:,2));
-        [in3, on3] = inpolygon(v(r,1), v(r,2), obstacle3(:,1),obstacle3(:,2));
-        [in4, on4] = inpolygon(v(r,1), v(r,2), obstacle4(:,1),obstacle4(:,2));
-        [in5, on5] = inpolygon(v(r,1), v(r,2), obstacle5(:,1),obstacle5(:,2));
-        if      in == 1 ||  on == 1 ...
-            || in2 == 1 || on2 == 1 ...
-            || in3 == 1 || on3 == 1 ...
-            || in4 == 1 || on4 == 1 ...
-            || in5 == 1 || on5 == 1
-        
-            data.node(i,:) = v(r-1,:);
-            break
-        end
+v = [linspace(data.node(data.parent(i),1), data.node(i,1), 50)', linspace(data.node(data.parent(i),2), data.node(i,2), 50)'];
+for r = 1:1:length(v)
+    [in, on] = inpolygon(v(r,1), v(r,2), obstacle(:,1),obstacle(:,2));
+    [in2, on2] = inpolygon(v(r,1), v(r,2), obstacle2(:,1),obstacle2(:,2));
+    [in3, on3] = inpolygon(v(r,1), v(r,2), obstacle3(:,1),obstacle3(:,2));
+    [in4, on4] = inpolygon(v(r,1), v(r,2), obstacle4(:,1),obstacle4(:,2));
+    [in5, on5] = inpolygon(v(r,1), v(r,2), obstacle5(:,1),obstacle5(:,2));
+    if      in == 1 ||  on == 1 ...
+        || in2 == 1 || on2 == 1 ...
+        || in3 == 1 || on3 == 1 ...
+        || in4 == 1 || on4 == 1 ...
+        || in5 == 1 || on5 == 1
+
+        data.node(i,:) = v(r-1,:);
+        break
     end
+end
 ```
+
+If no collisions are detected, we can draw an edge between the two nodes.
+
+```matlab
+plot([data.node(index_d,1) data.node(i,1)], [data.node(index_d,2) data.node(i,2)], 'b')
+```
+To animate the plot, we can add a ```pause()``` command at this point in the loop to slow it down so we can view the search in progress.
+
+```matlab
+pause(.01)
+```
+
+Finally, we compute the distance between our newest node in the tree and the ```GOAL``` node. We also keep track of the shortest path here in case we don't find a solution within our search threshold ```E```. If we reach our iteration limit, we will return the best solution we've found so far.
+
+```matlab
+E = sqrt((qg(1)-data.node(i,1))^2 + (qg(2)-data.node(i,2))^2);
+if E < shortest_E
+    shortest_E = E;
+    index_E = i;
+end
+```
+
+We repeat this process until either of our two exit criteria are met.
+
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
