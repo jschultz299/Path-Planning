@@ -170,5 +170,9 @@ Because of their relative simplicity and explorative nature, RRTs are a popular 
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-star.png" width=75%>
 
+If you missed my previous project implementing the A* Graph Search Algorithm, check it out [here](https://github.com/jschultz299/Path-Planning/tree/main/A-Star)!
+
 ## Acknowledgments
+This RRT implementation in MATLAB was completed as part of the requirements for my graduate coursework in Dr. Eric Schearer's course: Intelligent Controls.
+
 For more information about RRTs and other robotics topics, check out Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
