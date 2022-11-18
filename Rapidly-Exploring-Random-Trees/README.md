@@ -140,6 +140,21 @@ end
 
 We repeat this process until either of our two exit criteria are met.
 
+Once our ```while``` exits and our RRT algoritm terminates, we need to reconstruct the shortest path between the ```START``` node and the ```GOAL``` node.
+
+```matlab
+% Plot the path to the node closest to the goal
+j = index_E;
+k = data.parent(index_E);
+
+while k ~= 0
+    plot([data.node(k,1) data.node(j,1)], [data.node(k,2) data.node(j,2)], 'k', 'LineWidth', 2)
+    j = k;
+    k = data.parent(j);
+end
+```
+
+
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
