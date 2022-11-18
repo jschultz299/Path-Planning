@@ -158,5 +158,9 @@ And that's it! Now we can sit back and watch the RRT algorithm do it's job.
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-ex1.gif" width=50%>
 
+Here is another example with a more difficult environment configuration and the RRT algorithm handles it just fine.
+
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-ex2.gif" width=50%>
+
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
