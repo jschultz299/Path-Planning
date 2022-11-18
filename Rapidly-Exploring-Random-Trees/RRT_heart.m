@@ -5,12 +5,14 @@ clear; clc; close all;
 % ESTABLISH CONFIGURATION SPACE AND OBSTACLES 
 
 % Create the configuration space (heart)
+figure
 t = linspace(-pi,pi,360);
 cx = (16*sin(t).^3);
 cy = (13*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t));
 plot(cx,cy,'r','LineWidth',2)
-set(gcf,'position',[600 50 800 700]);
+% set(gcf,'position',[600 50 800 700]);
 hold on 
+axis([-20 20 -20 15])
 
 % Create an obstacle (smaller heart)
 t = linspace(-pi,pi,360);
@@ -43,13 +45,15 @@ hold on
 % Set goal position (center of heart)
 xd = 2; 
 yd = -2;
-plot(xd,yd,'bo')
+plot(xd,yd,'b.','MarkerSize',18)
+text(xd-1.1,yd-0.75,'GOAL','Color','black','FontSize',10)
 hold on
 
 % Set starting position 
 xs = -10;
 ys = 2;
-plot(xs,ys,'go')
+plot(xs,ys,'g.','MarkerSize',18)
+text(xs-1.25,ys-0.75,'START','Color','black','FontSize',10)
 
 % --------------------------------------------------------------------
 % BEGIN RRT WITH OBSTACLE DETECTION 
@@ -65,7 +69,6 @@ idx_parent(1,:) = 0;
 
 while cond > 0.1
     count = count + 1;
-    count
 
     rands_all = [cx*rand(1); cy*rand(1)];
     N = length(rands_all);

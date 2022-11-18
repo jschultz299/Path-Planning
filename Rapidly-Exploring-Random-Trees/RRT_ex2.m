@@ -1,7 +1,5 @@
-% MCE 793: Intelligent Controls
-% Homework 6: Rapidly Exploring Random Tree (RRT)
-% Created by Jack Schultz
-% Due April 23rd, 2020
+% Rapidly Exploring Random Tree Implementation Example
+% Author: Jack Schultz
 
 clear; clc; close all
 
@@ -22,11 +20,14 @@ plot(OB(:,1),OB(:,2))
 hold on
 plot(qs(1), qs(2), 'g.', 'MarkerSize', 18)
 plot(qg(1), qg(2), 'm.', 'MarkerSize', 18)
-axis([-1 13 -1 13])
 
 fill(obstacle1(:,1), obstacle1(:,2),'r')
 fill(obstacle2(:,1), obstacle2(:,2),'r')
 fill(obstacle3(:,1), obstacle3(:,2),'r')
+
+text(qs(1)-0.6,qs(2)-0.5,'START','Color','black','FontSize',14)
+text(qg(1)-0.6,qg(2)-0.5,'GOAL','Color','black','FontSize',14)
+axis([-1 13 -1 13])
 
 %% Part a) Plot the tree
 
@@ -37,7 +38,7 @@ E = inf;
 flag = 0;
 shortest_E = inf;
 
-while E > .1
+while E > .2
     i = i+1;
     % Every so often, set new node to equal the goal node
 %     if mod(i,50) == 0
@@ -84,7 +85,7 @@ while E > .1
         index_E = i;
     end
     
-    if i >= 2000
+    if i >= 1500
         warning('Too many iterations. Stopping here and plotting closest point.')
         plot(data.node(index_E,1), data.node(index_E,2), '*g', 'MarkerSize', 8)
         flag = 1;
@@ -93,7 +94,8 @@ while E > .1
 end
 
 if flag == 0
-    disp('Node found!')
+    disp('Goal node found!')
+    title('Goal Node Found!','FontSize',18,'Color','r')
     plot(data.node(index_E,1), data.node(index_E,2), '*g', 'MarkerSize', 8)
 end
 

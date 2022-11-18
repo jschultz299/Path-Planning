@@ -1,7 +1,5 @@
-% MCE 793: Intelligent Controls
-% Interactive Session: Artificial Neural Networks
-% Created by Jack Schultz
-% April 8th, 2020
+% Rapidly Exploring Random Tree Implementation Example
+% Author: Jack Schultz
 
 clear; clc; close all
 
@@ -13,13 +11,13 @@ qg = [8 7];
 % qs = [0 0];
 % qg = [12 12];
 
-
-
 figure
 plot(OB(:,1),OB(:,2))
 hold on
-plot(qs(1), qs(2), '.', 'MarkerSize', 14)
-plot(qg(1), qg(2), '.', 'MarkerSize', 14)
+plot(qs(1), qs(2), '.', 'MarkerSize', 20)
+text(qs(1)-0.6,qs(2)-0.5,'START','Color','red','FontSize',14)
+plot(qg(1), qg(2), '.', 'MarkerSize', 20)
+text(qg(1)-0.6,qg(2)-0.5,'GOAL','Color','red','FontSize',14)
 axis([-1 13 -1 13])
 % axis('square')
 
@@ -85,7 +83,7 @@ while E > .2
     end
     
     plot([data.node(index_d,1) data.node(i,1)], [data.node(index_d,2) data.node(i,2)], 'b')
-    pause(.01)
+%     pause(.01)
     
     E = sqrt((qg(1)-data.node(i,1))^2 + (qg(2)-data.node(i,2))^2);
     if E < shortest_E
@@ -102,7 +100,8 @@ while E > .2
 end
 
 if flag == 0
-    disp('Node found!')
+    disp('Goal node found!')
+    title('Goal Node Found!','FontSize',18,'Color','r')
     plot(data.node(index_E,1), data.node(index_E,2), '*k', 'MarkerSize', 8)
 end
 
