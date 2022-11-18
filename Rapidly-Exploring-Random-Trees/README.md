@@ -42,6 +42,12 @@ fill(obstacle5(:,1), obstacle5(:,2),'r')
 ```
 You can easily change the positions of the ```START``` and ```GOAL``` nodes as well as the number and positions of the ```OBSTACLES``` here.
 
+In general, the RRT algorithm has two goals:
+1. Find a path from the ```START``` node to the ```END``` node
+2. Explore the space
+
+Unlike the A* algorithm, the RRT does not guarantee the optimal path will be found. Instead, this is a sampling algorithm that will explore until a node is found within some radius ```E > 0.2```of the goal node, or until a specified number of nodes have been searched.
+
 
 
 ## Acknowledgments
