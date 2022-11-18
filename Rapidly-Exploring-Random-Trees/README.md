@@ -6,7 +6,11 @@ For this reason, we need to use sampling path planning methods that allow us to 
 
 One popular sampling path planning method is called a Rapidly Exploring Random Tree (RRT). 
 
-In this code, I have implemented an RRT in a 2D environment in MATLAB. Much like in the [A* Search Algorithm](https://github.com/jschultz299/Path-Planning/tree/main/A-Star), we begin by creating an environment with a ```START``` node, a ```GOAL``` node, as well as ```OBSTACLES```.
+In this code, I have implemented an RRT in a 2D environment in MATLAB. 
+
+## Environment Setup
+
+Much like in the [A* Search Algorithm](https://github.com/jschultz299/Path-Planning/tree/main/A-Star), we begin by creating an environment with a ```START``` node, a ```GOAL``` node, as well as ```OBSTACLES```.
 
 Here is what our example environment will look like:
 
@@ -67,6 +71,18 @@ if i >= 1000
 end
 ```
 
+## RRT Algorithm
+
+Now we can begin the actual RRT search. First, we sample a point randomly within the workspace.
+
+```matlab
+if i >= 1000
+    warning('Too many iterations. Stopping here and plotting closest point.')
+    plot(data.node(index_E,1), data.node(index_E,2), '*k', 'MarkerSize', 8)
+    flag = 1;
+    break
+end
+```
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
