@@ -40,6 +40,8 @@ fill(obstacle3(:,1), obstacle3(:,2),'r')
 fill(obstacle4(:,1), obstacle4(:,2),'r')
 fill(obstacle5(:,1), obstacle5(:,2),'r')
 ```
+You can easily change the positions of the ```START``` and ```GOAL``` nodes as well as the number and positions of the ```OBSTACLES``` here.
+
 
 
 ## Acknowledgments
