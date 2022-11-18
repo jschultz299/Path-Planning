@@ -10,6 +10,7 @@ In this code, I have implemented an RRT in a 2D environment in MATLAB. Much like
 
 Here is what our example environment will look like:
 
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/A-Star/img/initial_lists.png" width=50%>
 
 
 ## Acknowledgments
