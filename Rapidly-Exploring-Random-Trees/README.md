@@ -46,8 +46,26 @@ In general, the RRT algorithm has two goals:
 1. Find a path from the ```START``` node to the ```END``` node
 2. Explore the space
 
-Unlike the A* algorithm, the RRT does not guarantee the optimal path will be found. Instead, this is a sampling algorithm that will explore until a node is found within some radius ```E > 0.2``` of the goal node, or until a specified number of nodes have been searched.
+Unlike the A* algorithm, the RRT does not guarantee the optimal path will be found. Instead, this is a sampling algorithm that will explore until a node is found within some radius of the goal node, or until a specified number of nodes have been searched.
 
+In the code, we implement this with a ```while``` loop. Here, ```E``` is our search radius and in this case we've set it to ```0.2```. If we increase ```E```, it will be easier for the RRT algorithm to find a path planning solution, however it is likely the solution will not be as accurate. When a node is found within the specified radius to the ```GOAL``` node, the while loop will exit.
+
+```matlab
+while E > 0.2
+    % Implement RRT algorithm here
+end
+```
+
+As an added failsafe, we can add an additional exit criteria if the number of nodes exceeds a certain limit. We can do this by counting the number of iterations in the ```while``` loop and comparing it to the limit each time through the loop. In this case, we set our iteration limit to ```1000```. If this iteration limit is exceeded, we terminate the ```while``` loop.
+
+```matlab
+if i >= 1000
+    warning('Too many iterations. Stopping here and plotting closest point.')
+    plot(data.node(index_E,1), data.node(index_E,2), '*k', 'MarkerSize', 8)
+    flag = 1;
+    break
+end
+```
 
 
 ## Acknowledgments
