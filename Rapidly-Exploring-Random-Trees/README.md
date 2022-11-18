@@ -166,5 +166,9 @@ You can also have some fun with RRTs and draw pictures with them! Here's one I p
 
 <img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-heart.gif" width=50%>
 
+Because of their relative simplicity and explorative nature, RRTs are a popular path planning sampling algorithm. They don't guarantee an optimal solution, however, there is an extension to the RRT algorithm called RRT* that does. This algorithm continuously updates the tree so that the solution trends toward the optimal solution as the number of nodes in the tree approaches infinity. Here's a side-by-side of the RRT and RRT* solutions on the same problem.
+
+<img src="https://github.com/jschultz299/Path-Planning/blob/main/Rapidly-Exploring-Random-Trees/img/rrt-heart.gif" width=50%>
+
 ## Acknowledgments
 For more information about RRTs and other robotics topics, check out Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
