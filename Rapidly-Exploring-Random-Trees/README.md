@@ -80,7 +80,42 @@ data.node(i,:) = 12*rand(1,2);
 ```
 We can modify the ```mean``` and ```standard deviation``` of the ```rand()``` function to manipulate the point sampling.
 
+We then check the current tree and find the node that is the closest to the new node we have just sampled.
 
+```matlab
+% Find nearest parent node to new node
+    shortest_d = inf;
+    for ii = 1:1:size(data.node,1)
+        d = sqrt((data.node(ii,1)-data.node(i,1))^2 + (data.node(ii,2)-data.node(i,2))^2);
+        if d ~= 0 && d < shortest_d
+            shortest_d = d;
+            index_d = ii;
+        end
+    end
+```
+
+We then need to make sure that no collisions are detected between the nearest parent node and the new sampled node.
+
+```matlab
+% Collision Detection
+    v = [linspace(data.node(data.parent(i),1), data.node(i,1), 50)', linspace(data.node(data.parent(i),2), data.node(i,2), 50)'];
+    for r = 1:1:length(v)
+        [in, on] = inpolygon(v(r,1), v(r,2), obstacle(:,1),obstacle(:,2));
+        [in2, on2] = inpolygon(v(r,1), v(r,2), obstacle2(:,1),obstacle2(:,2));
+        [in3, on3] = inpolygon(v(r,1), v(r,2), obstacle3(:,1),obstacle3(:,2));
+        [in4, on4] = inpolygon(v(r,1), v(r,2), obstacle4(:,1),obstacle4(:,2));
+        [in5, on5] = inpolygon(v(r,1), v(r,2), obstacle5(:,1),obstacle5(:,2));
+        if      in == 1 ||  on == 1 ...
+            || in2 == 1 || on2 == 1 ...
+            || in3 == 1 || on3 == 1 ...
+            || in4 == 1 || on4 == 1 ...
+            || in5 == 1 || on5 == 1
+        
+            data.node(i,:) = v(r-1,:);
+            break
+        end
+    end
+```
 
 ## Acknowledgments
 Much of the information here came from Kevin Lynch's book, [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf) as well as his corresponding YouTube series, found [here](https://www.youtube.com/playlist?list=PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx).
